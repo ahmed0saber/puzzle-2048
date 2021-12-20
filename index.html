@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 2048</title>
+    <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="about" class="container-fluid p-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4 container-md p-1">
+                <div class="p-4 border bg-light text-dark rounded full-height">
+                    <h1 class="text-center">Puzzle 2048</h1>
+                    <h3 id="p1">Score: 0</h3>
+                    <div class="container-fluid" id="div1">
+                        <div class="row flexability">
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="0"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="1"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="2"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="3"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row flexability">
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="4"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="5"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="6"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="7"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row flexability">
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="8"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="9"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="10"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="11"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row flexability">
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="12"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="13"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="14"></p>
+                                </div>
+                            </div>
+                            <div class="col-3 container-md p-1">
+                                <div class="border bg-light text-white rounded puzzle-grid">
+                                    <p id="15"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid mt-3" id="div2">
+                        <div class="row">
+                            <div class="col-4 container-md p-1">
+                                <div class="border bg-light text-dark rounded">
+                                    <button onclick="to_top()" class="btn btn-primary w-100">Up</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 container-md p-1">
+                                <div class="border bg-light text-dark rounded">
+                                    <button onclick="to_left()" class="btn btn-primary w-100">Left</button>
+                                </div>
+                            </div>
+                            <div class="col-4 container-md p-1">
+                                <div class="border bg-light text-dark rounded">
+                                    <button onclick="to_down()" class="btn btn-primary w-100">Down</button>
+                                </div>
+                            </div>
+                            <div class="col-4 container-md p-1">
+                                <div class="border bg-light text-dark rounded">
+                                    <button onclick="to_right()" class="btn btn-primary w-100">Right</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid mt-3" id="div3">
+                        <div class="row">
+                            <div class="col-6 container-md p-1">
+                                <div class="border bg-light text-dark rounded">
+                                    <button onclick="new_game()" class="btn btn-primary w-100">New game</button>
+                                </div>
+                            </div>
+                            <div class="col-6 container-md p-1">
+                                <div class="border bg-light text-dark rounded">
+                                    <button onclick="send_score()" class="btn btn-primary w-100">Submit score</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="form">
+                        <input type="hidden" id="h1">
+                        <input type="hidden" id="h2" value="puzzle2048">
+                        <input type="text" class="form-control" placeholder="Username" id="t1">
+                        <button id="b1" class="btn btn-primary mt-2">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-8 container-md p-1">
+                <div class="p-4 border bg-light text-dark rounded full-height" id="leaderboard">
+                    <h1 class="text-center">Leaderboard</h1>
+                    <div class="row">
+                        <button class="btn btn-primary" id="r1">Refresh</button>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3 container-md p-1 bg-light text-dark">
+                            <p>Rank</p>
+                        </div>
+                        <div class="col-5 container-md p-1 bg-light text-dark">
+                            <p>Name</p>
+                        </div>
+                        <div class="col-4 container-md p-1 bg-light text-dark">
+                            <p>Score</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./bootstrap/bootstrap.bundle.min.js"></script>
+<script src="./js/app.js"></script>
+</html>

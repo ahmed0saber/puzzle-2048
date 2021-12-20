@@ -1,0 +1,43 @@
+*{
+    font-family: Bree Serif, sans-serif;
+}
+.full-height{
+    min-height: calc(100vh - 40px);
+}
+.flexability{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.puzzle-grid {
+    position: relative;
+    width: 100%;
+}
+.puzzle-grid:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.puzzle-grid p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    line-height:100%;
+    height:100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#div1{
+touch-action: none;
+}
+#form{
+display: none;
+}
+#names , #scores , #ranks{
+word-break: break-all;
+}
