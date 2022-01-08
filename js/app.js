@@ -201,7 +201,7 @@ let showBtn = document.querySelector("#r1")
             for (item of data){
                 if( item.score < 69696969){
                     i++;
-                    tag = `<div class="row border rounded m-1">
+                    tag = `<div class="row border rounded mt-1 mb-2">
                     <div class="col-3 p-1 bg-light text-dark" id='ranks'>
                         <p>${i}</p>
                     </div>
