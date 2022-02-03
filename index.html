@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="theme-color" content="#FDFDFF">
+    <meta name="msapplication-navbutton-color" content="#FDFDFF">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#FDFDFF">
+    <meta name="description" content="Puzzle 2048 is a game created by Ahmed Saber.">
+    <meta name="keywords" content="game, puzzle 2048, puzzle, html, css, js, leaderboard api, Ahmed Saber, ahmed0saber">
+    <meta name="author" content="Ahmed Saber, ahmed0saber33@gmail.com, ahmed0saber">
+    <meta name="og:title" content="Puzzle 2048">
+    <meta name="og:description" content="Puzzle 2048 is a game created by Ahmed Saber.">
+    
+    <meta property="og:image" content="https://drive.google.com/u/0/uc?id=1XS0DMXLgS1nWi7ka_nqBS2vTWicClaPi&export=download">
+    <link rel="icon" href="https://drive.google.com/u/0/uc?id=1XS0DMXLgS1nWi7ka_nqBS2vTWicClaPi&export=download" type="image/x-icon">
+    
+    <meta name="og:type" content="Skill Test">
+    <meta name="og:email" content="ahmed0saber33@gmail.com">
+    <meta name="og:phone_number" content="+201208611892">
+    <meta name="og:country-name" content="Egypt">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puzzle 2048</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -14,7 +33,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-4 container-md p-1">
                 <div class="p-4 border bg-light text-dark rounded full-height">
-                    <h1 class="text-center">Puzzle 2048</h1>
+                    <h1 class="text-center animate__animated animate__backInLeft">Puzzle 2048</h1>
                     <h3 id="p1">Score: 0</h3>
                     <div class="container-fluid" id="div1">
                         <div class="row flexability">
@@ -141,6 +160,21 @@
                         <div class="row">
                             <div class="col-6 container-md p-1">
                                 <div class="border bg-light text-dark rounded">
+                                    <button onclick="save()" class="btn btn-primary w-100">Save</button>
+                                </div>
+                            </div>
+                            <div class="col-6 container-md p-1">
+                                <div class="border bg-light text-dark rounded">
+                                    <button onclick="load()" class="btn btn-primary w-100">Load</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid mt-3" id="div3">
+                        <div class="row">
+                            <div class="col-6 container-md p-1">
+                                <div class="border bg-light text-dark rounded">
                                     <button onclick="new_game()" class="btn btn-primary w-100">New game</button>
                                 </div>
                             </div>
@@ -184,7 +218,23 @@
             </div>
         </div>
     </div>
+    <footer>
+        <a href="https://github.com/ahmed0saber" target="_blank">This game is developed by Ahmed Saber</a>
+    </footer>
+
+    <audio controls hidden id="myAudio">
+        <source src="./sound.wav" type="audio/ogg">
+        <source src="./sound.wav" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
 </body>
 <script src="./bootstrap/bootstrap.bundle.min.js"></script>
 <script src="./js/app.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+    duration: 1000
+    });
+</script>
 </html>

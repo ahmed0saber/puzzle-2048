@@ -1,13 +1,32 @@
-var _array=[] ;
+var _array=[];
 var i , rand , n , score=0;
+var x = document.getElementById("myAudio");
 function new_turn(){
+    x.play();
     document.getElementById("p1").innerHTML = "Score: " + score.toString();
     //get a random number from 0 to 15
     rand=Math.floor((Math.random() * 16));
+    //get a random number from 0 to 5
+    num=Math.floor((Math.random() * Math.min(score/200,5)));
+    //get 2 or 4
+    if(num==0){
+        num=2;
+    }else if(num==1){
+        num=4;
+    }else if(num==2){
+        num=8;
+    }else if(num==3){
+        num=16;
+    }else if(num==4){
+        num=32;
+    }else if(num==5){
+        num=64;
+    }
     //then put 2 in its cell
     if(_array[rand]<2){
-    _array[rand]=2;
-    document.getElementById(rand.toString()).textContent=2;}
+        _array[rand]=num;
+        document.getElementById(rand.toString()).textContent=num;
+    }
     else{new_turn();}
     //colors
     for(i=0;i<16;i++){
@@ -39,14 +58,16 @@ function new_turn(){
         {target_element.style.backgroundColor="#0D6E5D";}
         else {target_element.style.backgroundColor = "#0D6E4D";}
     }
+
+    document.getElementById(rand.toString()).style.backgroundColor="#009E9D";
 }
 function new_game(){
     score=0;
     //let all cells equal zero
     for(i=0;i<16;i++){
-    _array[i]="";
-    document.getElementById(i.toString()).textContent="";}
-    new_turn();
+        _array[i]="";
+        document.getElementById(i.toString()).textContent="";}
+        new_turn();
     }
     function to_right(){
     for(var right=0;right<=12;right+=4)
@@ -201,16 +222,17 @@ let showBtn = document.querySelector("#r1")
             for (item of data){
                 if( item.score < 69696969){
                     i++;
-                    tag = `<div class="row border rounded mt-1 mb-2">
-                    <div class="col-3 p-1 bg-light text-dark" id='ranks'>
+                    tag = `<div class="row border rounded mt-1 mb-2" id="user${i}" data-aos="fade-right">
+                    <div class="col-3 p-1 text-dark" id='ranks'>
                         <p>${i}</p>
                     </div>
-                    <div class="col-5 p-1 bg-light text-dark" id='names'>
+                    <div class="col-5 p-1 text-dark" id='names'>
                         <p>${item.name}</p>
                     </div>
-                    <div class="col-4 p-1 bg-light text-dark" id='scores'>
+                    <div class="col-4 p-1 text-dark" id='scores'>
                         <p>${item.score}</p>
                     </div>
+                    <span class="sale"></span>
                 </div>`
                     container.innerHTML += tag
                 }
@@ -312,4 +334,52 @@ function send_score(){
     document.getElementById("div3").style.display="none";
     document.getElementById("form").style.display="block";
     document.getElementById("h1").value=score;
+}
+
+
+function save(){
+    localStorage.setItem("board", JSON.stringify(_array));
+    localStorage.setItem("score", score);
+    alert("Saved successfully.");
+}
+
+function load(){
+    if(localStorage.getItem("board")){
+        _array = JSON.parse(localStorage.getItem("board"));
+        score = parseInt(localStorage.getItem("score"));
+        document.getElementById("p1").innerHTML = "Score: " + score.toString();
+        for(var i=0;i<_array.length;i++){
+            document.getElementById(i).textContent = _array[i];
+        }
+        for(i=0;i<16;i++){
+            let target_element = document.getElementById(i.toString())
+            if(_array[i]=="")
+            {target_element.style.backgroundColor="#F8F9FA";}
+            else if(_array[i]==2)
+            {target_element.style.backgroundColor="#0D6EFD";}
+            else if(_array[i]==4)
+            {target_element.style.backgroundColor="#0D6EED";}
+            else if(_array[i]==8)
+            {target_element.style.backgroundColor="#0D6EDD";}
+            else if(_array[i]==16)
+            {target_element.style.backgroundColor="#0D6ECD";}
+            else if(_array[i]==32)
+            {target_element.style.backgroundColor="#0D6EBD";}
+            else if(_array[i]==64)
+            {target_element.style.backgroundColor="#0D6EAD";}
+            else if(_array[i]==128)
+            {target_element.style.backgroundColor="#0D6E9D";}
+            else if(_array[i]==256)
+            {target_element.style.backgroundColor="#0D6E8D";}
+            else if(_array[i]==512)
+            {target_element.style.backgroundColor="#0D6E7D";}
+            else if(_array[i]==1024)
+            {target_element.style.backgroundColor="#0D6E6D";}
+            else if(_array[i]==2048)
+            {target_element.style.backgroundColor="#0D6E5D";}
+            else {target_element.style.backgroundColor = "#0D6E4D";}
+        }
+    }else{
+        alert("There is no saved game.");
+    }
 }
