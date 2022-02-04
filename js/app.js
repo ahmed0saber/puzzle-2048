@@ -1,8 +1,8 @@
 var _array=[];
 var i , rand , n , score=0;
-var x = document.getElementById("myAudio");
+/*var x = document.getElementById("myAudio");*/
 function new_turn(){
-    x.play();
+    /*x.play();*/
     document.getElementById("p1").innerHTML = "Score: " + score.toString();
     //get a random number from 0 to 15
     rand=Math.floor((Math.random() * 16));
